@@ -1,18 +1,23 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'slim'
 
 get '/' do
-  erb :home
+  @title = "Songs By Sinatra"
+  slim :home
 end
 
 get '/about' do
-  erb :about
+  @title = "All About This Awesome Website"
+  slim :about
 end
 
 get '/contact' do
-  erb :contact
+  @title = "Get at me"
+  slim :contact
 end
 
 not_found do
-  erb :not_found
+  @title = "404"
+  slim :not_found
 end
